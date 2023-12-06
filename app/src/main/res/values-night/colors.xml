@@ -6,7 +6,6 @@
     <!-- 직접 추가한 색 -->
     <color name="orange">#FF6E40</color>
     <color name="orange_transparent">#C3FF6E40</color>
-    <color name="theme_text_color">#FF000000</color>
-    <color name="theme_horizontal_only_view">#40000000</color>
-
+    <color name="theme_text_color">#FFFFFFFF</color>
+    <color name="theme_horizontal_only_view">#FFFFFFFF</color>
 </resources>

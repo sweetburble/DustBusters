@@ -1,4 +1,4 @@
-package com.example.dustbusters
+package com.bandi.dustbusters
 
 import android.Manifest
 import android.app.Activity
@@ -12,18 +12,19 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.dustbusters.databinding.ActivityMainBinding
-import com.example.dustbusters.retrofit.AirQualityResponse
-import com.example.dustbusters.retrofit.AirQualityService
-import com.example.dustbusters.retrofit.RetrofitConnection
+import com.bandi.dustbusters.databinding.ActivityMainBinding
+import com.bandi.dustbusters.retrofit.AirQualityResponse
+import com.bandi.dustbusters.retrofit.AirQualityService
+import com.bandi.dustbusters.retrofit.RetrofitConnection
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,7 +37,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    lateinit var binding : ActivityMainBinding
 
     // 런타임 권한 요청 시, 필요한 요청 코드
     private val PERMISSIONS_REQUEST_CODE = 100
@@ -51,6 +52,22 @@ class MainActivity : AppCompatActivity() {
     // 위도와 경도를 가져올 때, 필요하다
     lateinit var locationProvider: LocationProvider
 
+    // 위도와 경도를 클래스 객체 변수로 저장한다
+    var latitude : Double = 0.0
+    var longitude : Double = 0.0
+
+    val startMapActivityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),
+        object : ActivityResultCallback<ActivityResult> {
+            override fun onActivityResult(result: ActivityResult) {
+                if (result?.resultCode ?: 0 == Activity.RESULT_OK) {
+                    // 지도 페이지(MapActivity.kt)에서는 위도와 경도를 반환한다. 이 값을 객체 변수에 각각 저장한다
+                    latitude = result?.data?.getDoubleExtra("latitude", 0.0) ?: 0.0
+                    longitude = result?.data?.getDoubleExtra("longitude", 0.0) ?: 0.0
+                    updateUI() // 얻어온 위도와 경도로 updateUI()를 실행하여 미세먼지 농도를 구한다
+                }
+            }
+        })
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -58,7 +75,29 @@ class MainActivity : AppCompatActivity() {
 
         checkAllPermissions() // 모든 권한이 허용되었는지 확인
         updateUI()
+
         setRefreshButton()
+        setFabMap() // 현재 위도와 경도 정보를 담아 지도 페이지로 보내는 함수
+        setFabNews() // 대기질 예보 뉴스 페이지로 보내는 함수
+    }
+
+    private fun setFabNews() {
+        binding.fabNews.setOnClickListener {
+            val intent = Intent(this, NewsActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    /**
+     * startMapActivityResult 변수를 launch()하면 지도 페이지로 이동하고, 콜백 함수로 등록해둔 onActivityResult가 실행된다.
+     */
+    private fun setFabMap() {
+        binding.fab.setOnClickListener {
+            val intent = Intent(this, MapActivity::class.java)
+            intent.putExtra("currentLat", latitude)
+            intent.putExtra("currentLng", longitude)
+            startMapActivityResult.launch(intent)
+        }
     }
 
     private fun setRefreshButton() {
@@ -75,8 +114,10 @@ class MainActivity : AppCompatActivity() {
         locationProvider = LocationProvider(this@MainActivity)
 
         // 위도와 경도 정보를 가져온다
-        val latitude : Double = locationProvider.getLocationLatitude()
-        val longitude : Double = locationProvider.getLocationLongitude()
+        if (latitude == 0.0 || longitude == 0.0) {
+            latitude = locationProvider.getLocationLatitude()
+            longitude = locationProvider.getLocationLongitude()
+        }
 
         if (latitude != 0.0 || longitude != 0.0) {
             // 1. 현재 위치를 가져오고, UI 업데이트 (getFromLocation이 Deprecated이기 때문에 GeocodeListener 구현)

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.05"
+            android:text="현재 대기질 (미세먼지/오존) 예보 조회"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            />
+
+        <TextView
+            android:id="@+id/news_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.05"
+            android:text="2023-12-04 23시 발표"
+            android:textSize="12sp"
+            android:textStyle="bold"
+
+            android:layout_marginTop="10dp"
+
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintEnd_toEndOf="@id/guideline3" />
+
+        <TextView
+            android:id="@+id/news_overall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.05"
+            android:text="○ [미세먼지] 전 권역이 '좋음'∼'보통'으로 예상됩니다. 다만, 세종은 밤에 '나쁨' 수준일 것으로 예상됩니다."
+            android:textSize="16sp"
+
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintTop_toBottomOf="@id/news_time"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            />
+
+        <ImageView
+            android:id="@+id/img_PM10"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/news_overall"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/theme_horizontal_only_view"
+            app:layout_constraintTop_toBottomOf="@id/img_PM10"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3" />
+
+        <ImageView
+            android:id="@+id/img_PM25"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/view1"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/theme_horizontal_only_view"
+            app:layout_constraintTop_toBottomOf="@id/img_PM25"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3" />
+
+        <ImageView
+            android:id="@+id/img_O3"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/view2"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3" />
+
+        <TextView
+            android:id="@+id/text_O3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.05"
+            android:layout_marginTop="20dp"
+            android:text="오존예보는 매년 4월15일 ~ 10월15일 까지만 발표됩니다."
+            android:textStyle="bold"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

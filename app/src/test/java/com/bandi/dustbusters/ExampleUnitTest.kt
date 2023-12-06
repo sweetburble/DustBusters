@@ -1,4 +1,4 @@
-package com.example.dustbusters
+package com.bandi.dustbusters
 
 import org.junit.Test
 

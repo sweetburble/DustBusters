@@ -1,4 +1,4 @@
-package com.example.dustbusters.retrofit
+package com.bandi.dustbusters.retrofit
 
 data class AirQualityResponse(
     val `data`: Data,

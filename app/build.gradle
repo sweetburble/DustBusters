@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.dustbusters'
+    namespace 'com.bandi.dustbusters'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.dustbusters"
+        applicationId "com.bandi.dustbusters"
         minSdk 26
         targetSdk 34
         versionCode 1
@@ -50,7 +50,15 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    // 레트로핏 라이브러리 추가
+    // 레트로핏 라이브러리와 같이 사용되는 gson 라이브러리 추가
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation 'com.google.code.gson:gson:2.9.0'
+
+    // 구글 맵 API를 사용하게 해주는 라이브러리 추가
+    implementation "com.google.android.gms:play-services-maps:17.0.1"
+    implementation "com.google.android.gms:play-services-location:18.0.0"
+
+    // 모든 종류의 이미지를 가능한 한 빠르게 가져와서 이용할 수 있게 하는 Glide 라이브러리 추가
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
 }
