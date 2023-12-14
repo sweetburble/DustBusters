@@ -2,7 +2,6 @@
 ### 미세먼지 측정 및 대기질 예보 안드로이드 애플리케이션 📱💨 <br><br><br>
 
 
-https://github.com/sweetburble/DustBusters/assets/79733289/3a4da35b-8d3e-4c71-82fc-34cc29f79478
 
 <br><br><br>
 
