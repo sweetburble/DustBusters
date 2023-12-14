@@ -1,7 +1,10 @@
 # DustBusters
 ### 미세먼지 측정 및 대기질 예보 안드로이드 애플리케이션 📱💨 <br><br><br>
 
-[![Video Label](https://img.youtube.com/vi/TaV1r341wYk/mqdefault.jpg)](https://www.youtube.com/watch?v=TaV1r341wYk)<br><br><br>
+
+https://github.com/sweetburble/DustBusters/assets/79733289/060a1d3b-b7a5-4dfe-b2ef-36694b43e26f
+
+<br><br><br>
 
 ## 1. 개요 📝
 
@@ -11,6 +14,8 @@
 **DustBusters**라는 이름은 미국의 유명한 영화 "Ghostbusters"에서 영감을 얻었습니다.  
 영화에서 등장하는 고스트 버스터즈가 유령을 각종 과학 장비로 잡는 것처럼,  
 우리도 최신 과학 기술 집약체인 스마트폰을 통해서 미세먼지를 적극적으로 대비하고 대처했으면 합니다! 👻➡️💨<br><br>
+
+<img src="https://img.youtube.com/vi/TaV1r341wYk/mqdefault.jpg" />
 
 ## 2. 사용한 기술 스택 🛠️
 
@@ -39,7 +44,7 @@
 "DustBusters"는 한국환경공단에서 제공하는 대기질 예보 데이터를 받아와 사용자에게 제공합니다.  
 데이터는 매일 4회(오전5시, 오전 11시, 오후5시(17시), 오후11시(23시))에 19개 권역으로 발표되고 있습니다. 높은 가시성을 위해 예측모델 결과 애니메이션 이미지를 제공합니다.  
 이를 통해 사용자는 미세먼지 농도가 높을 것으로 예상되는 시간과 장소를 미리 알 수 있습니다. ⏰🗺️<br><br>
-https://github.com/sweetburble/DustBusters/assets/79733289/3dbcb92f-ccd9-4fb8-b2ae-1c90c2244c29
+![ezgif com-resize](https://github.com/sweetburble/DustBusters/assets/79733289/1b6af488-b5f3-45a4-a7d1-221778d77fea)
 <br><br><br>
 
 ## 4. 기대 효과 🚀
