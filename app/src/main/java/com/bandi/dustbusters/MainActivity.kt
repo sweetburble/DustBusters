@@ -178,7 +178,7 @@ class MainActivity : AppCompatActivity() {
         retrofitAPI.getAirQualityData(
             latitude.toString(),
             longitude.toString(),
-            "3ed3f9e1-c971-4534-bbd9-39ac65877c03"
+            "{API 키가 들어갑니다}"
         ).enqueue(object : Callback<AirQualityResponse> { // enqueue() 함수에는 retrofit.Callback 인터페이스 구현체를 인수로 넘겨야 한다
             override fun onResponse(
                 call: Call<AirQualityResponse>,
