@@ -14,7 +14,7 @@ https://github.com/sweetburble/DustBusters/assets/79733289/6f8f991f-ea80-4467-95
 영화에서 등장하는 고스트 버스터즈가 유령을 각종 과학 장비로 잡는 것처럼,  
 우리도 최신 과학 기술 집약체인 스마트폰을 통해서 미세먼지를 적극적으로 대비하고 대처했으면 합니다! 👻➡️💨<br><br>
 
-<img src="https://img.youtube.com/vi/TaV1r341wYk/mqdefault.jpg" />
+<img src="https://github.com/sweetburble/DustBusters/assets/79733289/fce4ba50-e2e1-4dbb-a321-d285dc8fd5f4" />
 
 ## 2. 사용한 기술 스택 🛠️
 
